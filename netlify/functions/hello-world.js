@@ -3,6 +3,7 @@ exports.handler = async (request) => {
     // Specify the target domain to which you want to forward the requests
     const targetDomain = 'http://localhost.airdns.org:32707/';
     console.log("incoming request" + JSON.stringify(request))
+    console.log("incoming request method" + JSON.stringify(request.method))
   
     // // Create a new URL object from the request's URL
     // const url = new URL(request.url);
