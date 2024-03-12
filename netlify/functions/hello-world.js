@@ -3,8 +3,9 @@ exports.handler = async (request) => {
 
     // Specify the target domain to which you want to forward the requests
     const targetDomain = 'http://localhost.airdns.org:32707/';
-    console.log("incoming request" + JSON.stringify(request))
-    console.log("incoming request method" + JSON.stringify(request.method))
+
+    orgRequestBody = await request.blob()
+    console.log("incoming request body blob" + JSON.stringify(orgRequestBody))
   
     // // Create a new URL object from the request's URL
     // const url = new URL(request.url);
@@ -28,7 +29,7 @@ exports.handler = async (request) => {
       method: "POST",
       // headers: request.headers,
       // Body is stream, must be forwarded as is for methods that have body
-      body: request.body
+      body: orgRequestBody
     };
     console.log("Preparing a POST")
     // } else {
