@@ -19,13 +19,21 @@ exports.handler = async (request) => {
     // const destinationURL = `${targetDomain}${pathname}${search}`;
     console.log(url);
   
+    let init = {}
     // Preserve the original request method (e.g., GET, POST), headers, and body
-    const init = {
-      method: request.method,
-      headers: request.headers,
-      // Body is stream, must be forwarded as is for methods that have body
-      body: request.method === 'GET' || request.method === 'HEAD' ? undefined : request.body
-    };
+    if (request.method === "POST" ) {
+      init = {
+        method: request.method,
+        headers: request.headers,
+        // Body is stream, must be forwarded as is for methods that have body
+        body: request.body
+      };
+    } else {
+      init = {
+        method: request.method,
+        headers: request.headers,
+      };
+    }
   
     // Create a new request with the updated URL and original request properties
     const newRequest = new Request(url, init);
