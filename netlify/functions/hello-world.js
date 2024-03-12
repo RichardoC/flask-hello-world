@@ -47,7 +47,7 @@ exports.handler = async (request) => {
   
     // Return the response back to the client
     console.log(response)
-    let bodyReturned = await response.blob()
+    let bodyReturned = await response.text()
     console.log(bodyReturned)
 
     return {
