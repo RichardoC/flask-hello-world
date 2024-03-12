@@ -47,8 +47,12 @@ exports.handler = async (request) => {
   
     // Return the response back to the client
     console.log(response)
-    return response;
-  }
+    return {
+      statusCode: response.status,
+      body:response.body
+    };
+
+  };
 
   // return {
   //   statusCode: 200,
