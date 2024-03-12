@@ -27,7 +27,7 @@ exports.handler = async (request) => {
         method: request.method,
         // headers: request.headers,
         // Body is stream, must be forwarded as is for methods that have body
-        body: request.blob()
+        body: request.body
       };
       console.log("Preparing a POST")
     } else {
