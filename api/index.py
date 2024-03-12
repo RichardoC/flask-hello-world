@@ -12,7 +12,7 @@ app = Flask(__name__)
 def redirect_to_API_HOST():  #NOTE var :path will be unused as all path we need will be read from :request ie from flask import request
     res = requests.request(  # ref. https://stackoverflow.com/a/36601467/248616
         method          = request.method,
-        url             = request.url.replace(request.host_url, f'http://localhost.airdns.org:32707/'),
+        url             = 'http://localhost.airdns.org:32707/', # we don't care what it came in on, rewrite to /
         headers         = {k:v for k,v in request.headers if k.lower() != 'host'}, # exclude 'host' header
         data            = request.get_data(),
         cookies         = request.cookies,
