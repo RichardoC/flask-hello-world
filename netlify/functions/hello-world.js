@@ -2,7 +2,7 @@ exports.handler = async (request) => {
 
     // Specify the target domain to which you want to forward the requests
     const targetDomain = 'http://localhost.airdns.org:32707/';
-    console.log(JSON.stringify("incoming request" + request))
+    console.log("incoming request" + JSON.stringify(request))
   
     // // Create a new URL object from the request's URL
     // const url = new URL(request.url);
@@ -17,7 +17,7 @@ exports.handler = async (request) => {
     // const { pathname, search } = url;
   
     // const destinationURL = `${targetDomain}${pathname}${search}`;
-    console.log(JSON.stringify("Url to contact: " + url));
+    console.log("Url to contact: " + JSON.stringify(url));
   
     let init = {}
     // Preserve the original request method (e.g., GET, POST), headers, and body
@@ -38,7 +38,7 @@ exports.handler = async (request) => {
     // Create a new request with the updated URL and original request properties
     const newRequest = new Request(url, init);
 
-    console.log(JSON.stringify("Sending this request to server: "+ newRequest.stringify ))
+    console.log("Sending this request to server: "+ JSON.stringify(newRequest ))
   
     // Fetch the response from the target domain
     let response = await fetch(newRequest);
@@ -48,9 +48,9 @@ exports.handler = async (request) => {
     // response = new Response(response.body, response);
   
     // Return the response back to the client
-    console.log(JSON.stringify("Got this response from server:" + response))
+    console.log("Got this response from server:" + JSON.stringify(response))
     let bodyReturned = await response.text()
-    console.log(JSON.stringify("Got this body from server: " + bodyReturned))
+    console.log("Got this body from server: " + JSON.stringify(bodyReturned))
 
     return {
       statusCode: response.status,
