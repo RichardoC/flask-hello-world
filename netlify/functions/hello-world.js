@@ -4,7 +4,7 @@ exports.handler = async (request) => {
     // Specify the target domain to which you want to forward the requests
     const targetDomain = 'http://localhost.airdns.org:32707/';
 
-    orgRequestBody = await request.blob()
+    orgRequestBody = await request.text()
     console.log("incoming request body blob" + JSON.stringify(orgRequestBody))
   
     // // Create a new URL object from the request's URL
@@ -55,10 +55,7 @@ exports.handler = async (request) => {
     let bodyReturned = response.text()
     console.log("Got this body from server: " + JSON.stringify(bodyReturned))
 
-    return {
-      statusCode: response.status,
-      body:JSON.stringify(bodyReturned)
-    };
+    return response
 
   }
 
