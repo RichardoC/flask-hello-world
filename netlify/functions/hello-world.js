@@ -47,9 +47,10 @@ exports.handler = async (request) => {
   
     // Return the response back to the client
     console.log(response)
+    let bodyReturned = await response.body.blob()
     return {
       statusCode: response.status,
-      body:JSON.stringify(response.body)
+      body:JSON.stringify(bodyReturned)
     };
 
   };
