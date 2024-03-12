@@ -24,14 +24,14 @@ exports.handler = async (request) => {
     if (request.method === "POST" ) {
       init = {
         method: request.method,
-        headers: request.headers,
+        // headers: request.headers,
         // Body is stream, must be forwarded as is for methods that have body
         body: request.body
       };
     } else {
       init = {
         method: request.method,
-        headers: request.headers,
+        // headers: request.headers,
       };
     }
   
