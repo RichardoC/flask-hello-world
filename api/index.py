@@ -1,4 +1,5 @@
 from flask import Flask
+import requests
 
 app = Flask(__name__)
 
@@ -6,6 +7,7 @@ app = Flask(__name__)
 # def home():
 #     return 'Hello, World!'
 
+# based on https://stackoverflow.com/a/53725861/16365314
 @app.route('/')
 def redirect_to_API_HOST():  #NOTE var :path will be unused as all path we need will be read from :request ie from flask import request
     res = requests.request(  # ref. https://stackoverflow.com/a/36601467/248616
