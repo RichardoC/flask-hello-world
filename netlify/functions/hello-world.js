@@ -1,3 +1,4 @@
+// This will ALWAYS POST, because for some reason method is undefined from netlify requests
 exports.handler = async (request) => {
 
     // Specify the target domain to which you want to forward the requests
@@ -22,19 +23,19 @@ exports.handler = async (request) => {
   
     let init = {}
     // Preserve the original request method (e.g., GET, POST), headers, and body
-    if (request.method === "POST" ) {
+    // if (request.method === "POST" ) {
       init = {
-        method: request.method,
+        method: "POST",
         // headers: request.headers,
         // Body is stream, must be forwarded as is for methods that have body
         body: request.body
       };
       console.log("Preparing a POST")
-    } else {
-      init = {
-        method: request.method,
-        // headers: request.headers,
-      };
+    // } else {
+    //   init = {
+    //     method: request.method,
+    //     // headers: request.headers,
+    //   };
     }
   
     // Create a new request with the updated URL and original request properties
