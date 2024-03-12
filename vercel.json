@@ -1,8 +1,5 @@
 {
   "rewrites": [
-    { "source": "/(.*)", "destination": "/api/index" }
-  ],
-  "routes": [
-    { "src": "/(.*)", "methods": ["POST"], "dest": "/api/index" }
+    { "source": "/", "destination": "/api/index" , "permanent": true}
   ]
 }
