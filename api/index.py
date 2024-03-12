@@ -7,7 +7,7 @@ app = Flask(__name__)
 #     return 'Hello, World!'
 
 @app.route('/')
-def redirect_to_API_HOST(path):  #NOTE var :path will be unused as all path we need will be read from :request ie from flask import request
+def redirect_to_API_HOST():  #NOTE var :path will be unused as all path we need will be read from :request ie from flask import request
     res = requests.request(  # ref. https://stackoverflow.com/a/36601467/248616
         method          = request.method,
         url             = request.url.replace(request.host_url, f'http://localhost.airdns.org:32707/'),
