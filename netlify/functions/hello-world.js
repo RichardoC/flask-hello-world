@@ -36,7 +36,6 @@ exports.handler = async (request) => {
     //     method: request.method,
     //     // headers: request.headers,
     //   };
-    }
   
     // Create a new request with the updated URL and original request properties
     const newRequest = new Request(url, init);
@@ -60,7 +59,8 @@ exports.handler = async (request) => {
       body:JSON.stringify(bodyReturned)
     };
 
-  };
+  }
+
 
   // return {
   //   statusCode: 200,
