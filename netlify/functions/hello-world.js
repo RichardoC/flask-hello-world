@@ -24,13 +24,13 @@ exports.handler = async (request) => {
     let init = {}
     // Preserve the original request method (e.g., GET, POST), headers, and body
     // if (request.method === "POST" ) {
-      init = {
-        method: "POST",
-        // headers: request.headers,
-        // Body is stream, must be forwarded as is for methods that have body
-        body: request.body
-      };
-      console.log("Preparing a POST")
+    init = {
+      method: "POST",
+      // headers: request.headers,
+      // Body is stream, must be forwarded as is for methods that have body
+      body: request.body
+    };
+    console.log("Preparing a POST")
     // } else {
     //   init = {
     //     method: request.method,
@@ -52,7 +52,7 @@ exports.handler = async (request) => {
   
     // Return the response back to the client
     console.log("Got this response from server:" + JSON.stringify(response))
-    let bodyReturned = await response.text()
+    let bodyReturned = response.text()
     console.log("Got this body from server: " + JSON.stringify(bodyReturned))
 
     return {
