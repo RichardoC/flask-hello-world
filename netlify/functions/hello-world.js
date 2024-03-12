@@ -49,7 +49,7 @@ exports.handler = async (request) => {
     console.log(response)
     return {
       statusCode: response.status,
-      body:response.body
+      body:JSON.stringify(response.body)
     };
 
   };
