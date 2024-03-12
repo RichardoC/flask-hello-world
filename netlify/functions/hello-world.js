@@ -55,7 +55,10 @@ exports.handler = async (request) => {
     let bodyReturned = response.text()
     console.log("Got this body from server: " + JSON.stringify(bodyReturned))
 
-    return response
+    return {
+      statusCode: response.status,
+      body:JSON.stringify(bodyReturned)
+    };
 
   }
 
