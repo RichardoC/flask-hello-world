@@ -7,12 +7,12 @@ exports.handler = async (request) => {
     // // Create a new URL object from the request's URL
     // const url = new URL(request.url);
   
-    const url = new URL(request.url);
+    const url = new URL(targetDomain);
   
     // // Replace the origin of the request URL with the target domain
-    url.host = new URL(targetDomain).host;
-    url.protocol = new URL(targetDomain).protocol;
-    url.port = new URL(targetDomain).port;
+    // url.host = new URL(targetDomain).host;
+    // url.protocol = new URL(targetDomain).protocol;
+    // url.port = new URL(targetDomain).port;
   
     // const { pathname, search } = url;
   
