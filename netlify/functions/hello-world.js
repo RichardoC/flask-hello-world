@@ -38,7 +38,7 @@ exports.handler = async (request) => {
     // response = new Response(response.body, response);
   
     // Return the response back to the client
-    console.log(response.body)
+    console.log(response)
     return response;
   }
 
